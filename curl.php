@@ -83,13 +83,20 @@ Class CurlRequest{
 			if (($err = curl_error($this->conn[$i])) == '') {
 				$res[$i] = curl_multi_getcontent($this->conn[$i]);
 			} else {
-				erro_log('取得に失敗しました:'.$this->url_list[$i]);
+				error_log('取得に失敗しました:'.$this->url_list[$i]);
 			}
 			curl_multi_remove_handle($this->mh,$this->conn[$i]);
 			curl_close($this->conn[$i]);
 		}
 		curl_multi_close($this->mh);
 
+		self::cleanup();
 		return $res;
+	}
+
+	private function cleanup(){
+		$this->conn=array();
+		$this->url_list=array();
+		$this->mh=array();
 	}
 }
