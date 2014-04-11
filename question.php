@@ -8,7 +8,7 @@ mb_regex_encoding('UTF-8');
 		$word_list[]=trim($str);
 	}
 
-$callback=htmlspecialchars($_GET['json'],ENT_QUOTES);
+$callback=htmlspecialchars($_GET['callback'],ENT_QUOTES);
 $number=$_GET['n'];
 if($number>10){
 	$number=3;

@@ -1,0 +1,17 @@
+<html>
+	<body>
+		<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript">
+$.ajax({
+   type: "GET",
+   url: "question.php",
+   data: "num=5",
+		dataType: "jsonp",
+   success: function(msg){
+     //console.log( "Data Saved: " + msg );
+     console.log( msg );
+   }
+ });
+		</script>
+	</body>
+</html>
